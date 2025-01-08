@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin-top: 70px;
+        }
+
+        .navbar {
+            background-color: #eaedf1;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-nav .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 20px;
+        }
+
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+
+        .navbar-nav .btn {
+            margin-left: 0px;
+        }
+
+        .navbar-nav .dropdown-menu {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .dropdown-item {
+            padding: 10px 20px;
+            color: #333;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .navbar-nav .dropdown-item:focus {
+            outline: none;
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <img src="KIIT-Full-Logo-Left.png" alt="Logo" width="380" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="register.html">Register Student</a></li>
+                            <li><a class="dropdown-item" href="courses.html">Manage Courses</a></li>
+                            <li><a class="dropdown-item" href="attendance.html">Attendance</a></li>
+                            <li><a class="dropdown-item" href="grades.html">Grades</a></li>
+                            <li><a class="dropdown-item" href="reports.html">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contactus.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary ml-2" id="user-name" onclick="handleLoginClick()">Log In</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for handling login display -->
+    <script>
+        // Function to handle login/logout redirection
+        function handleLoginClick() {
+            const userName = document.getElementById('user-name').innerText;
+            if (userName === 'Log In') {
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = 'LogoutServlet';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch user info from UserServlet
+            fetch('UserServlet')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        // If logged in, display the user name
+                        document.getElementById('user-name').innerText = data.userName;
+                    } else {
+                        // If not logged in, show "Log In"
+                        document.getElementById('user-name').innerText = 'Log In';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('user-name').innerText = 'Log In';
+                });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        header {
+            background: linear-gradient(to right, #71b3a1, #0961dc);
+            color: white;
+            text-align: center;
+            padding: 40px 0px;
+        }
+
+        .hero {
+            padding: 40px 0;
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto; /* Center the features section */
+        }
+
+        .feature-card {
+            margin-top: 20px; /* Space above each card */
+            margin-bottom: 20px; /* Space below each card */
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex: 1; /* Allow cards to grow */
+            min-width: 300px; /* Minimum width for each card */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .services ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .services ul li {
+            margin: 5px 0;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
+
+        .navbar-brand img {
+            height: 50px; /* Adjust this height if needed */
+            width: 80px;
+            filter: hue-rotate(123px);
+        }
+
+        .navbar {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .navbar {
+            background-color: #eaedf1;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">
+                    <!-- Adjust the src attribute to match the location of your image -->
+                    <img src="asets/Green and Black Minimalist Education Logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="create-account.html">Register Student</a>
+                                <a class="dropdown-item" href="courses.html">Manage Courses</a>
+                                <a class="dropdown-item" href="attendance.html">Attendance</a>
+                                <a class="dropdown-item" href="grades.html">Grades</a>
+                                <a class="dropdown-item" href="reports.html">Reports</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="contactus.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item">
+                            <button class="btn btn-primary ml-2" id="login" onclick="window.location.href='login.html'">Log
+                                In</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <h1>Welcome to the Student Management System</h1>
+            <p>Efficiently manage student data, courses, attendance, grades, and generate insightful reports.</p>
+            <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </header>
+
+    <main class="container mt-5">
+        <section class="features row">
+            <div class="col-lg-4 col-md-6 feature-card">
+                <img src="https://www.svgrepo.com/show/308044/registration-desk-register-records-office.svg"
+                    alt="Student Registration">
+                <h3>Student Registration</h3>
+                <p>Register new students and manage their profiles efficiently.</p>
+                <a href="create-account.html" class="btn btn-primary">Register Now</a>
+            </div>
+            <div class="col-lg-4 col-md-6 feature-card">
+                <img src="https://www.svgrepo.com/show/501100/assignment.svg" alt="Course Management">
+                <h3>Dashboard</h3>
+                <p>Create and manage courses, assign instructors, and track course details.</p>
+                <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+            </div>
+            <div class="col-lg-4 col-md-6 feature-card">
+                <img src="https://www.svgrepo.com/show/399598/registration.svg" alt="Attendance Tracking">
+                <h3>Attendance Tracking</h3>
+                <p>Track attendance records and view detailed attendance history.</p>
+                <a href="attendance.html" class="btn btn-primary">Track Attendance</a>
+            </div>
+            <div class="col-lg-4 col-md-6 feature-card">
+                <img src="https://www.svgrepo.com/show/501211/gradebook-export.svg" alt="Grade Management">
+                <h3>Grade Management</h3>
+                <p>Record and manage student grades with ease. View and export grade reports.</p>
+                <a href="grades.html" class="btn btn-primary">Manage Grades</a>
+            </div>
+            <div class="col-lg-4 col-md-6 feature-card">
+                <img src="https://www.svgrepo.com/show/274412/documents-copy.svg" alt="Reports Generation">
+                <h3>Reports Generation</h3>
+                <p>Generate comprehensive reports on students, attendance, and grades.</p>
+                <a href="reports.html" class="btn btn-primary">Generate Reports</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-light text-center py-3">
+        <p>&copy; 2024 Student Management System. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
